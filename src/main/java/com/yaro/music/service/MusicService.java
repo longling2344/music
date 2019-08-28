@@ -1,15 +1,15 @@
 package com.yaro.music.service;
 
-import com.yaro.music.enums.QualityEnum;
-import com.yaro.music.enums.SearchType;
 import com.yaro.music.feign.MusicApi;
 import com.yaro.music.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
+import static com.yaro.music.enums.QualityEnum.Q_320;
+import static com.yaro.music.enums.SearchType.SONG;
 
 /**
  * @author eyfnane
@@ -33,7 +33,7 @@ public class MusicService {
                 .keyword(keyword)
                 .pageSize(pageSize)
                 .page(page)
-                .type(SearchType.SONG)
+                .type(SONG)
                 .getParams();
     }
 
@@ -54,7 +54,7 @@ public class MusicService {
       SearchParameter parameter =  SearchParameterBuilder
                 .build()
                 .id(songId)
-                .quality(QualityEnum.Q_320.getValue())
+                .quality(Q_320)
                 .getParams();
         ResultMusicApi<List<String>> result = musicApi.getPlayUrl(parameter);
         return result.getData().get(0);

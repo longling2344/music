@@ -1,5 +1,6 @@
 package com.yaro.music.model;
 
+import com.yaro.music.enums.QualityEnum;
 import com.yaro.music.enums.SearchType;
 
 /**
@@ -25,8 +26,8 @@ public class SearchParameterBuilder {
         searchParameter.setIsRedirect(isRedirect?"1":"0");
         return this;
     }
-    public SearchParameterBuilder quality(String quality) {
-        searchParameter.setQuality(quality);
+    public SearchParameterBuilder quality(QualityEnum quality) {
+        searchParameter.setQuality(quality.getValue());
         return this;
     }
     public SearchParameterBuilder keyword(String keyword) {
