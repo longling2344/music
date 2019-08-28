@@ -56,8 +56,8 @@ public class MusicService {
                 .id(songId)
                 .quality(QualityEnum.Q_320.getValue())
                 .getParams();
-        ResultMusicApi<Arrays> result = musicApi.searchSongList(parameter);
-        return result.toString();
+        ResultMusicApi<List<String>> result = musicApi.getPlayUrl(parameter);
+        return result.getData().get(0);
 
     }
 }
