@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
  * @author eyfnane
  */
 @FeignClient(name = "musicApi", url = "https://v1.itooi.cn/tencent/")
-public interface MusicApi<T> {
+public interface MusicApi {
     @GetMapping("search")
-    ResultMusicApi<T> searchSongList(@SpringQueryMap SearchParameter parameter);
+    ResultMusicApi searchSongList(@SpringQueryMap SearchParameter parameter);
 }
